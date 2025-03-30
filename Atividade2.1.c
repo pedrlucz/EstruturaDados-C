@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAX 5 // Número de produtos
+#define MAX 5 
 
 struct Produto {
     char nome[50];
@@ -9,7 +9,6 @@ struct Produto {
     float preco;
 };
 
-// Função para mesclar duas metades ordenadas
 void merge(struct Produto arr[], int left, int mid, int right, int criterio) {
     int i, j, k;
     int n1 = mid - left + 1;
@@ -29,11 +28,11 @@ void merge(struct Produto arr[], int left, int mid, int right, int criterio) {
     while (i < n1 && j < n2) {
         int condicao;
         if (criterio == 1)
-            condicao = (L[i].preco < R[j].preco); // Ordenar por preço
+            condicao = (L[i].preco < R[j].preco); 
         else if (criterio == 2)
-            condicao = (L[i].quantidade < R[j].quantidade); // Ordenar por quantidade
+            condicao = (L[i].quantidade < R[j].quantidade); 
         else
-            condicao = (strcmp(L[i].nome, R[j].nome) < 0); // Ordenar por nome
+            condicao = (strcmp(L[i].nome, R[j].nome) < 0); 
 
         if (condicao) {
             arr[k] = L[i];
@@ -58,7 +57,6 @@ void merge(struct Produto arr[], int left, int mid, int right, int criterio) {
     }
 }
 
-// Função principal do Merge Sort
 void mergeSort(struct Produto arr[], int left, int right, int criterio) {
     if (left < right) {
         int mid = left + (right - left) / 2;
@@ -69,7 +67,6 @@ void mergeSort(struct Produto arr[], int left, int right, int criterio) {
     }
 }
 
-// Função para exibir os produtos
 void mostrarProdutos(struct Produto produtos[], int n) {
     printf("\n--- Lista de Produtos Ordenada ---\n");
     for (int i = 0; i < n; i++) {
@@ -78,12 +75,10 @@ void mostrarProdutos(struct Produto produtos[], int n) {
     }
 }
 
-// Função principal
 int main() {
     struct Produto produtos[MAX];
     int criterio;
 
-    // Entrada de dados
     for (int i = 0; i < MAX; i++) {
         printf("Digite o nome do produto %d: ", i + 1);
         scanf(" %[^\n]", produtos[i].nome);
@@ -95,7 +90,6 @@ int main() {
         scanf("%f", &produtos[i].preco);
     }
 
-    // Escolha do critério de ordenação
     printf("\nEscolha o critério de ordenação:\n");
     printf("1 - Preço\n");
     printf("2 - Quantidade\n");
@@ -103,10 +97,8 @@ int main() {
     printf("Opção: ");
     scanf("%d", &criterio);
 
-    // Aplicando Merge Sort
     mergeSort(produtos, 0, MAX - 1, criterio);
 
-    // Exibir a lista ordenada
     mostrarProdutos(produtos, MAX);
 
     return 0;
