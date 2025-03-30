@@ -1,5 +1,6 @@
 #include "carros.h"
 
+// if __name__ = "__main__"
 int main() {
     Carro carros[TAM];
 

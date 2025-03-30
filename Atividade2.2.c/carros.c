@@ -12,11 +12,11 @@ int partition_qs(Carro arr[], int low, int high, int criterio) {
 
     for (int j = low; j < high; j++) {
         int comparar = 0;
-        if (criterio == 1) { // por potência
+        if (criterio == 1) { // potência
             comparar = (arr[j].potencia < pivot.potencia);
-        } else if (criterio == 2) { // por nome
+        } else if (criterio == 2) { // nome
             comparar = (strcmp(arr[j].nome, pivot.nome) < 0);
-        } else if (criterio == 3) { // por marca
+        } else if (criterio == 3) { // marca
             comparar = (strcmp(arr[j].marca, pivot.marca) < 0);
         }
 

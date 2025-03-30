@@ -70,6 +70,7 @@ int main() {
         {"Eduardo", 8.0, 104}
     };
 
+    //qual ordenação
     int criterio;
     printf("Escolha o critério de ordenação:\n");
     printf("1 - Nota\n2 - Matrícula\n3 - Nome\n");
